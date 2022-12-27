@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "390070490164",
+    "project_id": "tiba-ee3b4",
+    "storage_bucket": "tiba-ee3b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390070490164:android:e2d9110a147c70979b2661",
+        "android_client_info": {
+          "package_name": "com.reginaldateya.tiba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390070490164-7hmqaqaf7dl02k0m1eucq15qt3ov094r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reginaldateya.tiba",
+            "certificate_hash": "40e258fb40cdeb5c4b0632e780ccc99d51f5e418"
+          }
+        },
+        {
+          "client_id": "390070490164-9c2ofqobhdpekvde8kdi04ok6bcmcopb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5y1LjddzoyHgjMLoDKiGaEy91PkTf96Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390070490164-9c2ofqobhdpekvde8kdi04ok6bcmcopb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
