@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_centerHorizontal="true">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circle_image_user_profile"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/profile"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Full name"
+            android:layout_below="@+id/circle_image_user_profile"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:id="@+id/fullName_search"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Phone number"
+            android:layout_below="@+id/fullName_search"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:id="@+id/phone_number_search"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Email"
+            android:layout_below="@+id/phone_number_search"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:id="@+id/email_search"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

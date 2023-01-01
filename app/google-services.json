@@ -1,10 +1,40 @@
 {
   "project_info": {
     "project_number": "390070490164",
+    "firebase_url": "https://tiba-ee3b4-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "tiba-ee3b4",
     "storage_bucket": "tiba-ee3b4.appspot.com"
   },
   "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390070490164:android:e1a3c3df66bb05229b2661",
+        "android_client_info": {
+          "package_name": "com.reginaldateya.soshi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390070490164-9c2ofqobhdpekvde8kdi04ok6bcmcopb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5y1LjddzoyHgjMLoDKiGaEy91PkTf96Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390070490164-9c2ofqobhdpekvde8kdi04ok6bcmcopb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:390070490164:android:e2d9110a147c70979b2661",

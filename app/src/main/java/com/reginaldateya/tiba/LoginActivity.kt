@@ -1,5 +1,6 @@
 package com.reginaldateya.tiba
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,8 +10,6 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-
-
 
 
 class LoginActivity : AppCompatActivity() {
@@ -67,10 +66,14 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val user = auth.currentUser
                     updateUI(user)
+
                 } else {
                     Toast.makeText(baseContext, "Login failed.",
                         Toast.LENGTH_SHORT).show()
                     updateUI(null)
+                    auth.signOut()
+
+
                 }
             }
     }
@@ -82,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    private fun updateUI(currentUser : FirebaseUser?) {
+    private fun updateUI(currentUser: FirebaseUser?) {
         if (currentUser != null) {
             if (currentUser.isEmailVerified) {
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
@@ -90,6 +93,8 @@ class LoginActivity : AppCompatActivity() {
             }else{
                 Toast.makeText(baseContext, "Please verify your email address.",
                     Toast.LENGTH_LONG).show()
+                auth.signOut()
+            
             }
         }
 

@@ -3,51 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:id="@+id/app_bar_layout_profile">
-
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:background="@color/white"
-            android:id="@+id/profile_tool_bar">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvProfileFragmentUserName"
-                    android:text="Username"
-                    android:textSize="18sp"
-                    android:maxLines="1"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_centerVertical="true"/>
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30sp"
-                    android:id="@+id/ivOptions"
-                    android:src="@drawable/option"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"/>
-                
-            </RelativeLayout>
+    tools:context=".ProfileActivity">
 
 
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
-    
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
@@ -63,13 +21,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/top_bar">
+                android:id="@+id/top_bar"
+                android:paddingStart="10dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:layout_marginTop="20dp"
                     android:id="@+id/pro_image_profile_frag"
-                    android:src="@drawable/ic_baseline_account_box_24">
+                    android:src="@drawable/profile">
 
                 </de.hdodenhof.circleimageview.CircleImageView>
 
@@ -90,7 +50,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/mid_bar">
+                android:id="@+id/mid_bar"
+                android:paddingStart="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -104,8 +65,25 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/email"
-                    android:text="Email address"
+                    android:id="@+id/clinic_name"
+                    android:text="Clinic name"
+                    android:textSize="13sp"
+                    android:textStyle="normal"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/district_profile"
+                    android:text="District"
+                    android:textSize="13sp"
+                    android:textStyle="normal"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title_profile"
+                    android:text="Title"
                     android:textSize="13sp"
                     android:textStyle="normal"
                     android:textColor="@color/black"/>
@@ -118,6 +96,17 @@
                     android:textSize="13sp"
                     android:textStyle="normal"
                     android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/email_profile"
+                    android:text="Email address"
+                    android:textSize="13sp"
+                    android:textStyle="normal"
+                    android:textColor="@color/black"/>
+
+
 
 
 

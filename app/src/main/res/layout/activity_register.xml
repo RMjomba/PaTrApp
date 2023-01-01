@@ -68,6 +68,44 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:minHeight="48dp"/>
+            <EditText
+                android:id="@+id/etClinicName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ       abcdefghijklmnopqrstuvwxyz"
+                android:ems="10"
+                android:hint="Clinic name"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:maxLines="1"
+                android:minHeight="48dp"/>
+
+            <EditText
+                android:id="@+id/etDistrict"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ       abcdefghijklmnopqrstuvwxyz"
+                android:ems="10"
+                android:hint="District"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:maxLines="1"
+                android:minHeight="48dp"/>
+
+            <EditText
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ       abcdefghijklmnopqrstuvwxyz"
+                android:ems="10"
+                android:hint="Title"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:maxLines="1"
+                android:minHeight="48dp"/>
 
             <EditText
                 android:id="@+id/etMobileNumber"
@@ -120,19 +158,6 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-    <CheckBox
-        android:id="@+id/cbAgree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="By checking this message, I hereby confirm that I agree with the Terms and Conditions"
-        android:textColor="#5579C6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cdAccountDetails"
-        app:layout_constraintVertical_bias="0.05" />
 
     <Button
         android:id="@+id/btnNext"

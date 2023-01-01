@@ -35,52 +35,63 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun createAccount() {
 
-        val fullName = etFullName.text.toString()
-        val phoneNumber = etMobileNumber.text.toString()
-        val email = etRegisterEmailAddress.text.toString()
-        val password = etPassword.text.toString()
+            val fullName = etFullName.text.toString()
+            val clinicName = etClinicName.text.toString()
+            val district = etDistrict.text.toString()
+            val title = etTitle.text.toString()
+            val phoneNumber = etMobileNumber.text.toString()
+            val email = etRegisterEmailAddress.text.toString()
+            val password = etPassword.text.toString()
 
-        when {
+            when {
 
-            TextUtils.isEmpty(fullName) -> Toast.makeText(this, "Full name is required!", Toast.LENGTH_SHORT).show()
-            TextUtils.isEmpty(phoneNumber) -> Toast.makeText(this, "Phone number is required!", Toast.LENGTH_SHORT).show()
-            TextUtils.isEmpty(email) -> Toast.makeText(this, "Email address is required!", Toast.LENGTH_SHORT).show()
-            TextUtils.isEmpty(password) -> Toast.makeText(this, "Password is required!", Toast.LENGTH_SHORT).show()
+                TextUtils.isEmpty(fullName) -> Toast.makeText(this, "Full name is required!", Toast.LENGTH_SHORT).show()
+                TextUtils.isEmpty(clinicName) -> Toast.makeText(this, "Clinic name is required!", Toast.LENGTH_SHORT).show()
+                TextUtils.isEmpty(district) -> Toast.makeText(this, "District is required!", Toast.LENGTH_SHORT).show()
+                TextUtils.isEmpty(title) -> Toast.makeText(this, "Title is required!", Toast.LENGTH_SHORT).show()
+                TextUtils.isEmpty(phoneNumber) -> Toast.makeText(this, "Phone number is required!", Toast.LENGTH_SHORT).show()
+                TextUtils.isEmpty(email) -> Toast.makeText(this, "Email address is required!", Toast.LENGTH_SHORT).show()
+                TextUtils.isEmpty(password) -> Toast.makeText(this, "Password is required!", Toast.LENGTH_SHORT).show()
 
-            else -> {
-                val progressDialog = ProgressDialog(this@RegisterActivity)
-                progressDialog.setTitle("SignUp")
-                progressDialog.setMessage("Please wait, this may take a while...")
-                progressDialog.setCanceledOnTouchOutside(false)
-                progressDialog.show()
 
-                val auth: FirebaseAuth = FirebaseAuth.getInstance()
+                else -> {
+                    val progressDialog = ProgressDialog(this@RegisterActivity)
+                    progressDialog.setTitle("SignUp")
+                    progressDialog.setMessage("Please wait, this may take a while...")
+                    progressDialog.setCanceledOnTouchOutside(false)
+                    progressDialog.show()
 
-                auth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener {task ->
-                        if (task.isSuccessful)
-                        {
+                    val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
-                            saveUserInfo(fullName,phoneNumber,email, progressDialog)
+                    auth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener {task ->
+                            if (task.isSuccessful)
+                            {
 
+                                val user = auth.currentUser
+                                user?.sendEmailVerification()
+
+                                saveUserInfo(fullName, clinicName, district, title, phoneNumber, email, progressDialog)
+
+                            }
+                            else {
+
+                                // If sign in fails, display a message to the user.
+                                val message = task.exception!!.toString()
+                                Toast.makeText(this, "Error: $message", Toast.LENGTH_LONG).show()
+                                auth.signOut()
+                                progressDialog.dismiss()
+                            }
                         }
-                        else {
+                }
 
-                            // If sign in fails, display a message to the user.
-                            val message = task.exception!!.toString()
-                            Toast.makeText(this, "Error: $message", Toast.LENGTH_LONG)
-                            auth.signOut()
-                            progressDialog.dismiss()
-                        }
-                    }
             }
+
 
         }
 
 
-    }
-
-    private fun saveUserInfo(fullName: String, phoneNumber: String, email: String, progressDialog: ProgressDialog) {
+    private fun saveUserInfo(fullName: String, clinicName: String, district: String, title: String, phoneNumber: String, email: String, progressDialog: ProgressDialog) {
 
         val currentUserId = FirebaseAuth.getInstance().currentUser!!.uid
         val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
@@ -88,8 +99,12 @@ class RegisterActivity : AppCompatActivity() {
         val userMap = HashMap<String, Any>()
         userMap["uid"] = currentUserId
         userMap["fullName"] = fullName
+        userMap["clinicName"] = clinicName
+        userMap["district"] = district
+        userMap["title"] = title
         userMap["phoneNumber"] = phoneNumber
         userMap["email"] = email
+        userMap["image"] = "https://firebasestorage.googleapis.com/v0/b/tiba-ee3b4.appspot.com/o/Default%20Images%2Fprofile.png?alt=media&token=aba6e11d-b6ac-4a34-bd36-6eed24efa7c3"
 
         usersRef.child(currentUserId).setValue(userMap)
             .addOnCompleteListener { task ->
@@ -100,7 +115,7 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+                    val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                     finish()
