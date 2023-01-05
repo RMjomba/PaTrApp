@@ -1,47 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginTop="16dp"
-    android:layout_marginStart="16dp"
-    android:background="@color/white">
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_centerHorizontal="true">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/profile"/>
-
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvFullName"
-        android:paddingTop="8dp"
-        android:textSize="20sp"
-        android:text="Reginald Ateya"
-        android:textColor="@color/black"
-        android:textStyle="bold"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Phone_number"
-        android:text="0708708481"
-        android:textSize="13sp"
-        android:textStyle="normal"
-        android:textColor="@color/black"/>
+        android:layout_centerHorizontal="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="reginaldateya@gmail.com"
-        android:textSize="16sp"/>
-    
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="30sp"
-        android:background="@color/underline"/>
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/mid_bar"
+            android:paddingStart="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/full_name"
+                android:text="Full name"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/id_number"
+                android:text="ID number"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/registry_number"
+                android:text="Registry number"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/clinic_name"
+                android:text="Clinic name"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/interview_date"
+                android:text="Interview date"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gender_profile"
+                android:text="Gender"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Phone_number"
+                android:text="Phone number"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/district_profile"
+                android:text="District"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_of_origination"
+                android:text="Date of Origination"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_of_revision"
+                android:text="Last Revision Date"
+                android:textSize="13sp"
+                android:textStyle="normal"
+                android:textColor="@color/black"/>
+
+
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

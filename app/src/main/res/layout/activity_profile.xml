@@ -10,8 +10,8 @@
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/app_bar_layout_profile"
-        >
+        android:layout_marginTop="20dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,8 +91,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/Phone_number"
-                    android:text="Phone number"
+                    android:id="@+id/gender_profile"
+                    android:text="Gender"
+                    android:textSize="13sp"
+                    android:textStyle="normal"
+                    android:textColor="@color/black"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/email_profile"
+                    android:text="Email address"
                     android:textSize="13sp"
                     android:textStyle="normal"
                     android:textColor="@color/black"/>
@@ -100,8 +110,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/email_profile"
-                    android:text="Email address"
+                    android:id="@+id/Phone_number"
+                    android:text="Phone number"
                     android:textSize="13sp"
                     android:textStyle="normal"
                     android:textColor="@color/black"/>

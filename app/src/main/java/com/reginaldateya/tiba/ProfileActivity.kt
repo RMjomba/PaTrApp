@@ -4,23 +4,37 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_register.*
 
 
 class ProfileActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "User Profile"
+
+        val imageView: ImageView = findViewById(R.id.pro_image_profile_frag)
+        val user = FirebaseAuth.getInstance().currentUser
+        val profileImageRef = FirebaseStorage.getInstance().getReference("profileImages/${user?.uid}")
+
+        profileImageRef.downloadUrl.addOnSuccessListener {
+            // Load the image using Glide library
+            Glide.with(this).load(it).into(imageView)
+        }
+
 
         btnEditProfile.setOnClickListener {
             startActivity(Intent(this@ProfileActivity, AccountSettingsActivity::class.java))
@@ -37,6 +51,7 @@ class ProfileActivity : AppCompatActivity() {
                 val clinicName = dataSnapshot.child("clinicName").getValue(String::class.java)
                 val district = dataSnapshot.child("district").getValue(String::class.java)
                 val title = dataSnapshot.child("title").getValue(String::class.java)
+                val gender = dataSnapshot.child("gender").getValue(String::class.java)
                 val phoneNumber = dataSnapshot.child("phoneNumber").getValue(String::class.java)
                 val email = dataSnapshot.child("email").getValue(String::class.java)
 
@@ -45,6 +60,7 @@ class ProfileActivity : AppCompatActivity() {
                 clinic_name.text = clinicName
                 district_profile.text = district
                 title_profile.text = title
+                gender_profile.text = gender
                 Phone_number.text = phoneNumber
                 email_profile.text = email
             }

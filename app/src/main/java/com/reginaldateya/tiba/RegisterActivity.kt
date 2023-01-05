@@ -4,6 +4,8 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -13,9 +15,35 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
+    private lateinit var radioGroup: RadioGroup
+    private lateinit var male: RadioButton
+    private lateinit var female: RadioButton
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        radioGroup = findViewById(R.id.radioGroup)
+        male = findViewById(R.id.male)
+        female = findViewById(R.id.female)
+
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.male -> {
+                    // Do something when option 1 is selected
+                    male = findViewById(R.id.male)
+                    val selectedOption = male.text
+                }
+                R.id.female -> {
+                    // Do something when option 2 is selected
+                    female = findViewById(R.id.female)
+                    val selectedOption = female.text
+                }
+            }
+        }
+
+
 
 
         tvLogin.setOnClickListener {
@@ -42,6 +70,13 @@ class RegisterActivity : AppCompatActivity() {
             val phoneNumber = etMobileNumber.text.toString()
             val email = etRegisterEmailAddress.text.toString()
             val password = etPassword.text.toString()
+        val selectedOption = when (radioGroup.checkedRadioButtonId) {
+            R.id.male -> male.text
+            R.id.female -> female.text
+            else -> null
+        }
+
+
 
             when {
 
@@ -71,7 +106,7 @@ class RegisterActivity : AppCompatActivity() {
                                 val user = auth.currentUser
                                 user?.sendEmailVerification()
 
-                                saveUserInfo(fullName, clinicName, district, title, phoneNumber, email, progressDialog)
+                                saveUserInfo(fullName, clinicName, district, title, phoneNumber, email, selectedOption, progressDialog)
 
                             }
                             else {
@@ -91,7 +126,16 @@ class RegisterActivity : AppCompatActivity() {
         }
 
 
-    private fun saveUserInfo(fullName: String, clinicName: String, district: String, title: String, phoneNumber: String, email: String, progressDialog: ProgressDialog) {
+    private fun saveUserInfo(
+        fullName: String,
+        clinicName: String,
+        district: String,
+        title: String,
+        phoneNumber: String,
+        email: String,
+        selectedOption: CharSequence?,
+        progressDialog: ProgressDialog
+    ) {
 
         val currentUserId = FirebaseAuth.getInstance().currentUser!!.uid
         val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
@@ -102,6 +146,7 @@ class RegisterActivity : AppCompatActivity() {
         userMap["clinicName"] = clinicName
         userMap["district"] = district
         userMap["title"] = title
+        userMap["gender"] = selectedOption.toString()
         userMap["phoneNumber"] = phoneNumber
         userMap["email"] = email
         userMap["image"] = "https://firebasestorage.googleapis.com/v0/b/tiba-ee3b4.appspot.com/o/Default%20Images%2Fprofile.png?alt=media&token=aba6e11d-b6ac-4a34-bd36-6eed24efa7c3"

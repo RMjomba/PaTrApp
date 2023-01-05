@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddSymptomsActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvAccountDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/white"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <TextView
+                android:id="@+id/tv_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fever"
+                android:textSize="20sp"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fever:Yes" />
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fever:No" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv_gender1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sweating"
+                android:textSize="20sp"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/male1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sweating:Yes" />
+
+                <RadioButton
+                    android:id="@+id/female1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sweating:No" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv_gender2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weight loss"
+                android:textSize="20sp"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/male2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weight loss:Yes" />
+
+                <RadioButton
+                    android:id="@+id/female2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weight loss:No" />
+
+            </RadioGroup>
+
+
+            <EditText
+                android:id="@+id/etCoughingWeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890       abcdefghijklmnopqrstuvwxyz"
+                android:ems="10"
+                android:hint="Coughing weeks"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="textPhonetic"
+                android:maxLines="1"
+                android:minHeight="48dp"/>
+
+            <TextView
+                android:id="@+id/tv_gender3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coughing "
+                android:textSize="20sp"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/male3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Coughing:Yes" />
+
+                <RadioButton
+                    android:id="@+id/female3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Coughing:No" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv_gender4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chest pains"
+                android:textSize="20sp"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/male4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chest pain:Yes" />
+
+                <RadioButton
+                    android:id="@+id/female4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chest pain:Yes" />
+
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/etOriginationDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="1234567890/- "
+                android:ems="10"
+                android:hint="Date of Origination"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:minHeight="48dp" />
+
+
+
+            <EditText
+                android:id="@+id/etLastRevisionDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="1234567890/- "
+                android:ems="10"
+                android:hint="Last Revision Date"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:minHeight="48dp" />
+
+
+            <Button
+                android:id="@+id/btnPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Post"
+                android:textAllCaps="false"
+                android:background="@color/havelock"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="50dp"/>
+
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>
