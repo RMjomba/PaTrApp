@@ -195,23 +195,13 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Logout"
-        android:layout_above="@id/btnDeleteAccount"
+        android:layout_above="@+id/cvAccountDetails"
         android:layout_centerInParent="true"
         android:textSize="18sp"
         android:background="@android:color/holo_blue_light"
         android:layout_marginBottom="16dp"
         />
-    <Button
-        android:id="@+id/btnDeleteAccount"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Delete Account"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:background="@color/red"
-        android:layout_marginBottom="40dp"/>
+
 
 
 </RelativeLayout>
