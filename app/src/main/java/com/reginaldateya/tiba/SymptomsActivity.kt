@@ -22,29 +22,29 @@ class SymptomsActivity : AppCompatActivity() {
         }
 
 
-        val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
+        val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Symptoms")
         val currentUserId = FirebaseAuth.getInstance().currentUser!!.uid
         val currentUserRef: DatabaseReference = usersRef.child(currentUserId)
 
         currentUserRef.addValueEventListener(object: ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Retrieve the user's data from the database
-                val fever = dataSnapshot.child("fever").getValue(Boolean::class.java)
-                val sweating = dataSnapshot.child("sweating").getValue(Boolean::class.java)
-                val weightLoss = dataSnapshot.child("weightLoss").getValue(Boolean::class.java)
+                val fever = dataSnapshot.child("fever").getValue(String::class.java)
+                val sweating = dataSnapshot.child("sweating").getValue(String::class.java)
+                val weightLoss = dataSnapshot.child("weightLoss").getValue(String::class.java)
                 val coughingWeeks = dataSnapshot.child("coughingWeeks").getValue(String::class.java)
-                val coughing = dataSnapshot.child("coughing").getValue(Boolean::class.java)
-                val chestPain = dataSnapshot.child("chestPain").getValue(Boolean::class.java)
+                val coughing = dataSnapshot.child("coughing").getValue(String::class.java)
+                val chestPain = dataSnapshot.child("chestPain").getValue(String::class.java)
                 val originationDate = dataSnapshot.child("originationDate").getValue(String::class.java)
                 val revisionDate = dataSnapshot.child("revisionDate").getValue(String::class.java)
 
                 // Update the user's profile with the retrieved data
-                Fever.text = fever.toString()
-                Sweating.text = sweating.toString()
-                tvWeightLoss.text = weightLoss.toString()
+                Fever.text = fever
+                Sweating.text = sweating
+                tvWeightLoss.text = weightLoss
                 coughing_weeks.text = coughingWeeks
-                fatigue.text = coughing.toString()
-                coughing_blood.text = chestPain.toString()
+                fatigue.text = coughing
+                coughing_blood.text = chestPain
                 origination_date.text = originationDate
                 revision__date.text = revisionDate
             }

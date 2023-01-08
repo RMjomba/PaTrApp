@@ -1,20 +1,15 @@
 package com.reginaldateya.tiba
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_profile.*
-import kotlinx.android.synthetic.main.activity_register.*
 
 
 class ProfileActivity : AppCompatActivity() {
@@ -55,6 +50,7 @@ class ProfileActivity : AppCompatActivity() {
                 val phoneNumber = dataSnapshot.child("phoneNumber").getValue(String::class.java)
                 val email = dataSnapshot.child("email").getValue(String::class.java)
 
+
                 // Update the user's profile with the retrieved data
                 full_name.text = fullName
                 clinic_name.text = clinicName
@@ -63,6 +59,7 @@ class ProfileActivity : AppCompatActivity() {
                 gender_profile.text = gender
                 Phone_number.text = phoneNumber
                 email_profile.text = email
+
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

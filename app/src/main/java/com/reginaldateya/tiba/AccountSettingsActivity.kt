@@ -227,6 +227,7 @@ class AccountSettingsActivity : AppCompatActivity() {
         val updatedPhoneNumber = etMobileNumber.text.toString()
         val updatedEmail = etEmailAddress.text.toString()
 
+
         val userMap = HashMap<String, Any>()
         userMap["fullName"] = updatedFullName
         userMap["clinicName"] = updatedClinicName

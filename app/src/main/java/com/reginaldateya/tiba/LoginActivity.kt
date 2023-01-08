@@ -88,17 +88,19 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUI(currentUser: FirebaseUser?) {
         if (currentUser != null) {
             if (currentUser.isEmailVerified) {
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                val email = currentUser.email
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                intent.putExtra("email", email)
+                startActivity(intent)
                 finish()
             }else{
                 Toast.makeText(baseContext, "Please verify your email address.",
                     Toast.LENGTH_LONG).show()
                 auth.signOut()
-            
+
             }
         }
-
-
     }
+
 }
 
